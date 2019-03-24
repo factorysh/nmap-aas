@@ -6,3 +6,7 @@
 [[constraint]]
   branch = "master"
   name = "github.com/factorysh/go-longrun"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/t94j0/nmap"

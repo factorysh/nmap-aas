@@ -28,12 +28,29 @@
   revision = "0cd6bf5da1e1c83f8b45653022c74f71af0538a4"
   version = "v1.1.1"
 
+[[projects]]
+  branch = "master"
+  digest = "1:2200beec8adceafc46e8fe4c5c6fd922dd0858fc81e29edafa088dc1cdcde639"
+  name = "github.com/t94j0/array"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "68930562a6bd96944103bb7ab828e128304a0a1f"
+
+[[projects]]
+  branch = "master"
+  digest = "1:ef91fa5d38a6397faf0885d9aef6ffec6d9cffabc60d676980549e3e096c1026"
+  name = "github.com/t94j0/nmap"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "17cccc8c97395c96a060c8ea0d272df4c1af2870"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
     "github.com/bitwurx/jrpc2",
     "github.com/factorysh/go-longrun/longrun",
+    "github.com/t94j0/nmap",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
