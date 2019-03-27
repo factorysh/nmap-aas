@@ -10,15 +10,23 @@
   revision = "f8dbe27c3d7f3847776c1998cd6cab7d1f8e8acf"
 
 [[projects]]
+  digest = "1:ffe9824d294da03b391f44e1ae8281281b4afc1bdaa9588c9097785e3af10cec"
+  name = "github.com/davecgh/go-spew"
+  packages = ["spew"]
+  pruneopts = "UT"
+  revision = "8991bc29aa16c548c550c7ff78260e27b9ab7c73"
+  version = "v1.1.1"
+
+[[projects]]
   branch = "master"
-  digest = "1:749d6802850d8d52c90049360c56ee8d032e5535a45ed3bf84dbed009d1673bb"
+  digest = "1:1272073d84a8c9d1e05c2791702940d9080d352b785b7dd62f45ca7179eec59e"
   name = "github.com/factorysh/go-longrun"
   packages = [
     "longrun",
     "run",
   ]
   pruneopts = "UT"
-  revision = "769b9463b952e3eabb0f4efd300d28b4f8ce16d0"
+  revision = "8414bc3f843bf39027f1d632d2062a9fb12dc0d3"
 
 [[projects]]
   digest = "1:582b704bebaa06b48c29b0cec224a6058a09c86883aaddabde889cd1a5f73e1b"
@@ -27,6 +35,22 @@
   pruneopts = "UT"
   revision = "0cd6bf5da1e1c83f8b45653022c74f71af0538a4"
   version = "v1.1.1"
+
+[[projects]]
+  digest = "1:0028cb19b2e4c3112225cd871870f2d9cf49b9b4276531f03438a88e94be86fe"
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  pruneopts = "UT"
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
+
+[[projects]]
+  digest = "1:972c2427413d41a1e06ca4897e8528e5a1622894050e2f527b38ddf0f343f759"
+  name = "github.com/stretchr/testify"
+  packages = ["assert"]
+  pruneopts = "UT"
+  revision = "ffdc059bfe9ce6a4e144ba849dbedead332c6053"
+  version = "v1.3.0"
 
 [[projects]]
   branch = "master"
@@ -44,13 +68,26 @@
   pruneopts = "UT"
   revision = "17cccc8c97395c96a060c8ea0d272df4c1af2870"
 
+[[projects]]
+  branch = "master"
+  digest = "1:75515eedc0dc2cb0b40372008b616fa2841d831c63eedd403285ff286c593295"
+  name = "golang.org/x/sync"
+  packages = ["semaphore"]
+  pruneopts = "UT"
+  revision = "e225da77a7e68af35c70ccbf71af2b83e6acac3c"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
     "github.com/bitwurx/jrpc2",
+    "github.com/davecgh/go-spew/spew",
     "github.com/factorysh/go-longrun/longrun",
+    "github.com/factorysh/go-longrun/run",
+    "github.com/google/uuid",
+    "github.com/stretchr/testify/assert",
     "github.com/t94j0/nmap",
+    "golang.org/x/sync/semaphore",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

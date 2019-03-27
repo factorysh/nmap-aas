@@ -1,20 +1,44 @@
 package nmap
 
 import (
-	"encoding/json"
-	"fmt"
+	"context"
 	"testing"
 
+	"github.com/davecgh/go-spew/spew"
+
+	"github.com/google/uuid"
+
+	"github.com/factorysh/go-longrun/run"
+
 	"github.com/stretchr/testify/assert"
-	_nmap "github.com/t94j0/nmap"
 )
 
 func TestNmap(t *testing.T) {
-	scan, err := _nmap.Init().AddHosts("blog.garambrogne.net").AddPorts(22, 80, 443).Run()
-	assert.NoError(t, err)
-	h, ok := scan.GetHost("blog.garambrogne.net")
+	ctx := context.Background()
+	runs := run.New()
+	np := New(ctx, runs, 3)
+
+	id, jerr := np.Nmap([]byte(`
+	{ 
+		"hosts": ["blog.garambrogne.net", "factory.sh", "bearstech.com"],
+		"ports": [22, 80, 443]
+	}
+	`))
+	assert.Nil(t, jerr)
+	uid, ok := id.(uuid.UUID)
 	assert.True(t, ok)
-	b, err := json.MarshalIndent(h, "", "  ")
-	assert.NoError(t, err)
-	fmt.Println(string(b))
+	i := 0
+	stop := false
+	for {
+		evts, err := runs.Get(uid, i)
+		assert.Nil(t, err)
+		i += len(evts)
+		for _, evt := range evts {
+			spew.Dump(evt)
+			stop = stop || evt.Ended()
+		}
+		if stop {
+			break
+		}
+	}
 }

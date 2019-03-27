@@ -8,3 +8,6 @@ vendor:
 
 bin:
 	mkdir -p bin
+
+test:
+	go test -v github.com/factorysh/nmap-aas/nmap
