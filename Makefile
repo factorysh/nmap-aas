@@ -20,3 +20,6 @@ docker-build:
 		-u `id -u` \
 		bearstech/golang-dep:stretch \
 		make build
+
+docker-image:
+	docker build -t nmap-aas .
