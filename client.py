@@ -9,7 +9,8 @@ def main():
     r = requests.post(RPC,
                       json=dict(jsonrpc="2.0",
                                 method="nmap.scan",
-                                params=dict(hosts=["bearstech.com", "factory.sh"],
+                                params=dict(hosts=["factory.sh",
+                                                   "blog.garambrogne.net"],
                                             ports=[22, 80, 443]),
                                 id=1))
     uid = r.json()['result']
