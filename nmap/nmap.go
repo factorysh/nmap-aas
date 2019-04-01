@@ -68,7 +68,7 @@ func doNmap(scan *Scan) {
 		return
 	}
 	for _, value := range scans.Hosts {
-		scan.run.Run(value.ToString())
+		scan.run.Run(value)
 	}
 	scan.run.Success(nil)
 }
