@@ -16,9 +16,9 @@ def main():
     while True:
         r = requests.post(RPC,
                         json=dict(jsonrpc="2.0",
-                                    method="longrun.next",
-                                    params=dict(id=uid, n=n),
-                                    id=1))
+                                  method="longrun.next",
+                                  params=dict(id=uid, n=n),
+                                  id=1))
         result = r.json()['result']
         stop = False
         for r in result:
