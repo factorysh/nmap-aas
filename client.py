@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import requests
 
 
@@ -8,21 +9,21 @@ def main():
     r = requests.post(RPC,
                       json=dict(jsonrpc="2.0",
                                 method="nmap.scan",
-                                params=dict(hosts=["bearstech.com"],
+                                params=dict(hosts=["bearstech.com", "factory.sh"],
                                             ports=[22, 80, 443]),
                                 id=1))
     uid = r.json()['result']
     n = 0
     while True:
         r = requests.post(RPC,
-                        json=dict(jsonrpc="2.0",
-                                  method="longrun.next",
-                                  params=dict(id=uid, n=n),
-                                  id=1))
+                          json=dict(jsonrpc="2.0",
+                                    method="longrun.next",
+                                    params=dict(id=uid, n=n),
+                                    id=1))
         result = r.json()['result']
         stop = False
         for r in result:
-            print(r)
+            print(json.dumps(r, indent=2))
             stop |= r['state'] in ['success', 'canceled', 'error']
         if stop:
             break
