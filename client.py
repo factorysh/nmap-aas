@@ -4,24 +4,20 @@ import json
 import requests
 
 
-def main():
+def rpc(method, **args):
     RPC = 'http://localhost:8888/api/v1/rpc'
-    r = requests.post(RPC,
-                      json=dict(jsonrpc="2.0",
-                                method="nmap.scan",
-                                params=dict(hosts=["factory.sh",
-                                                   "blog.garambrogne.net"],
-                                            ports=[22, 80, 443]),
-                                id=1))
-    uid = r.json()['result']
+    r = requests.post(RPC, json=dict(jsonrpc="2.0", method=method,
+                                     params=args, id=1))
+    return r.json()['result']
+
+
+def main():
+    uid = rpc("nmap.scan",
+              hosts=["factory.sh", "blog.garambrogne.net"],
+              ports=[22, 80, 443])
     n = 0
     while True:
-        r = requests.post(RPC,
-                          json=dict(jsonrpc="2.0",
-                                    method="longrun.next",
-                                    params=dict(id=uid, n=n),
-                                    id=1))
-        result = r.json()['result']
+        result = rpc("longrun.next", id=uid, n=n)
         stop = False
         for r in result:
             print(json.dumps(r, indent=2))
