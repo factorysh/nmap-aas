@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"os"
 
 	"github.com/bitwurx/jrpc2"
 	"github.com/factorysh/go-longrun/longrun"
@@ -15,7 +16,13 @@ func main() {
 	l := longrun.New()
 	s.Register("longrun.next", jrpc2.Method{Method: l.Next})
 	n := nmap.New(context.Background(), l.Runs, 5)
-	s.Register("nmap.scan", jrpc2.Method{Method: n.Nmap})
+	secret := os.Getenv("SECRET")
+	if secret != "" {
+		s.Register("nmap.scan", jrpc2.Method{Method: n.Nmap})
+	} else {
+		s.Register("nmap.scan", jrpc2.Method{Method: n.Nmap})
+	}
+
 	s.Start()
 
 }
