@@ -3,6 +3,7 @@ package nmap
 import (
 	"context"
 	"testing"
+	"time"
 
 	"github.com/davecgh/go-spew/spew"
 
@@ -15,7 +16,7 @@ import (
 
 func TestNmap(t *testing.T) {
 	ctx := context.Background()
-	runs := run.New()
+	runs := run.New(5 * time.Minute)
 	np := New(ctx, runs, 3)
 
 	id, jerr := np.Nmap([]byte(`

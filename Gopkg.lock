@@ -3,11 +3,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d970e39c70395d49d6fd589b1bed10ff15adbe3fecc9a1c1dbd40b4c9ee6ab44"
+  digest = "1:c2d470e363e425868980312c9b18d7a7c9afcf4e9e6fd5b0b8056c554c147019"
   name = "github.com/bitwurx/jrpc2"
   packages = ["."]
   pruneopts = "UT"
-  revision = "f8dbe27c3d7f3847776c1998cd6cab7d1f8e8acf"
+  revision = "3e97fc5ded7e902fd474946024541e0c2bcee62e"
 
 [[projects]]
   digest = "1:ffe9824d294da03b391f44e1ae8281281b4afc1bdaa9588c9097785e3af10cec"
@@ -18,15 +18,23 @@
   version = "v1.1.1"
 
 [[projects]]
+  digest = "1:76dc72490af7174349349838f2fe118996381b31ea83243812a97e5a0fd5ed55"
+  name = "github.com/dgrijalva/jwt-go"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
+  version = "v3.2.0"
+
+[[projects]]
   branch = "master"
-  digest = "1:1272073d84a8c9d1e05c2791702940d9080d352b785b7dd62f45ca7179eec59e"
+  digest = "1:b7b7af4382fd4b9f7980eb6a87b2458b6ad09bdf5d71ef5f0259b4447e79e873"
   name = "github.com/factorysh/go-longrun"
   packages = [
     "longrun",
     "run",
   ]
   pruneopts = "UT"
-  revision = "8414bc3f843bf39027f1d632d2062a9fb12dc0d3"
+  revision = "8f646d16f41a728537b34994d7acc5aa9a2d4a53"
 
 [[projects]]
   digest = "1:582b704bebaa06b48c29b0cec224a6058a09c86883aaddabde889cd1a5f73e1b"
@@ -62,19 +70,19 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:ef91fa5d38a6397faf0885d9aef6ffec6d9cffabc60d676980549e3e096c1026"
+  digest = "1:08917b7be5c743fcbc2d2556519b436eccd5245f04fb4566c79c2c99c27228ba"
   name = "github.com/t94j0/nmap"
   packages = ["."]
   pruneopts = "UT"
-  revision = "17cccc8c97395c96a060c8ea0d272df4c1af2870"
+  revision = "96d772f8fd992d13500a7fa0261b7b97ed9ac310"
 
 [[projects]]
   branch = "master"
-  digest = "1:75515eedc0dc2cb0b40372008b616fa2841d831c63eedd403285ff286c593295"
+  digest = "1:382bb5a7fb4034db3b6a2d19e5a4a6bcf52f4750530603c01ca18a172fa3089b"
   name = "golang.org/x/sync"
   packages = ["semaphore"]
   pruneopts = "UT"
-  revision = "e225da77a7e68af35c70ccbf71af2b83e6acac3c"
+  revision = "112230192c580c3556b8cee6403af37a4fc5f28c"
 
 [solve-meta]
   analyzer-name = "dep"
@@ -82,6 +90,7 @@
   input-imports = [
     "github.com/bitwurx/jrpc2",
     "github.com/davecgh/go-spew/spew",
+    "github.com/dgrijalva/jwt-go",
     "github.com/factorysh/go-longrun/longrun",
     "github.com/factorysh/go-longrun/run",
     "github.com/google/uuid",
