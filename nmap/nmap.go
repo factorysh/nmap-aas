@@ -73,16 +73,23 @@ func doNmap(scan *Scan) {
 	scan.run.Success(nil)
 }
 
+func (np *NmapPool) Run() *run.Run {
+	return np.runs.New()
+}
+
+func (np *NmapPool) AddScan(params *NmapParams) *run.Run {
+	u := np.Run()
+	np.waiting <- &Scan{
+		run:    u,
+		params: params,
+	}
+	return u
+}
+
 func (np *NmapPool) Nmap(params json.RawMessage) (interface{}, *jrpc2.ErrorObject) {
 	p := new(NmapParams)
 	if err := jrpc2.ParseParams(params, p); err != nil {
 		return nil, err
 	}
-	u := np.runs.New()
-
-	np.waiting <- &Scan{
-		run:    u,
-		params: p,
-	}
-	return u.Id(), nil
+	return np.AddScan(p).Id(), nil
 }
