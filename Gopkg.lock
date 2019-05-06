@@ -27,14 +27,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:b7b7af4382fd4b9f7980eb6a87b2458b6ad09bdf5d71ef5f0259b4447e79e873"
+  digest = "1:454a5ce01edf5d532aa5b24993de6e0410494192f87f9e7c1e77c0b2472c3c71"
   name = "github.com/factorysh/go-longrun"
   packages = [
     "longrun",
     "run",
   ]
   pruneopts = "UT"
-  revision = "8f646d16f41a728537b34994d7acc5aa9a2d4a53"
+  revision = "87af828976089c3e6745b72a4ad7be0ee9db1e3d"
 
 [[projects]]
   digest = "1:582b704bebaa06b48c29b0cec224a6058a09c86883aaddabde889cd1a5f73e1b"
