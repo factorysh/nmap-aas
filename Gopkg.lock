@@ -34,7 +34,7 @@
     "run",
   ]
   pruneopts = "UT"
-  revision = "87af828976089c3e6745b72a4ad7be0ee9db1e3d"
+  revision = "f54a1941de7e1ebbc5f3301e29c87a3f875c23b8"
 
 [[projects]]
   digest = "1:582b704bebaa06b48c29b0cec224a6058a09c86883aaddabde889cd1a5f73e1b"
